@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "athena-agent"
+version = "0.1.0"
+description = "Athena — Ross Ward's own AI orchestrator agent. Delegates to focused sub-agents (e.g. Sionnach) through a clean tool registry; runs offline-deterministic without a key."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ross Ward" }]
+requires-python = ">=3.11"
+keywords = ["agent", "orchestrator", "llm", "tools", "anthropic"]
+dependencies = []
+
+[project.optional-dependencies]
+# LLM backends are optional: Athena runs offline-deterministic with none of these.
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.40"]
+dev = ["pytest>=8.0"]
+# Sionnach is the first native sub-agent. Installed editable alongside Athena in
+# this monorepo; declared here so `pip install -e .[sionnach]` wires it when published.
+sionnach = ["sionnach"]
+
+[project.scripts]
+athena = "athena.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["athena"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_ignores = true
+ignore_missing_imports = true
