@@ -6,6 +6,7 @@ from athena.tools.report_tool import (
     build_portfolio_report,
     register_report,
 )
+from athena.tools.saoirse_tool import register_saoirse
 from athena.tools.sionnach_tool import (
     SionnachFleetTool,
     SionnachScanTool,
@@ -19,6 +20,7 @@ def default_registry() -> ToolRegistry:
     register_sionnach(reg)
     register_report(reg)
     register_apps(reg)
+    register_saoirse(reg)
     return reg
 
 
@@ -33,5 +35,6 @@ __all__ = [
     "register_report",
     "AppTool",
     "register_apps",
+    "register_saoirse",
     "default_registry",
 ]
