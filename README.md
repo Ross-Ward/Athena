@@ -1,12 +1,12 @@
-# 🦉 Athena
+# Athena
 
 > **Ross Ward's own AI orchestrator agent.** Coordinates work by *delegating* to
 > focused sub-agents and tools through a clean registry — instead of reasoning out
 > everything itself. Offline & deterministic by default; add a key for full reasoning.
 
-Athena is the in-house replacement for the third-party **Hermes Agent** clone.
-Same ambition — a personal AI that delegates, schedules, and self-improves — but
-rebuilt from scratch as Ross's own product with a tighter, pattern-driven core.
+Athena is a personal AI that delegates, schedules, and self-improves — built
+from scratch with a tight, pattern-driven core, replacing an earlier third-party
+agent stack.
 Its first sub-agent is **[Sionnach](../sionnach)** (the fox), which it calls to
 triage any project's production-readiness.
 
@@ -44,7 +44,7 @@ python -m pip install -e ../sionnach
 athena tools                       # what Athena can delegate to
 athena scan /path/to/project       # Sionnach backlog for one project (no key needed)
 athena fleet /path/to/portfolio    # rank a folder of projects worst-first
-athena ask "Triage hermes-agent and tell me the top 3 things to fix"
+athena ask "Triage this project and tell me the top 3 things to fix"
 athena version                     # version + active backend
 ```
 
@@ -76,7 +76,7 @@ task → Session(user) → loop:
 
 ## Roadmap
 
-Athena's `PLAN.md` (in `Foundry/AI-Agents/hermes-agent`) tracks the full rewrite:
+Athena's `PLAN.md` tracks the roadmap:
 messaging gateways (Telegram/Discord), cron scheduling, a skill registry, a web
 dashboard, and packaging as a self-hosted Docker image. This `v0.1` is the clean
 core + Sionnach delegation; the rest builds on this loop.
